@@ -15,7 +15,7 @@
   <!-- Navigation Bar -->
   <nav class="bg-white shadow-md fixed w-full z-30 top-0 left-0">
     <div class="container mx-auto px-0 py-0">
-      <div class="flex justify-between items-center p-3">
+      <div class="flex justify-between items-center p-3 mx-3">
         <div class="text-lg font-semibold">AgriConnect</div>
         <div class="flex space-x-4">
           <button on:click={() => scrollToSection("home")}>Home</button>

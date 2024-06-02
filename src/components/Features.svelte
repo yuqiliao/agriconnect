@@ -34,48 +34,9 @@
                 end: "top center",
                 onEnter: () => changeVideo(i),
                 onEnterBack: () => changeVideo(i),
+                // markers: true,
             });
-
-            gsap.fromTo(
-                feature,
-                {
-                    opacity: 0,
-                    y: 50,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: feature,
-                        start: "top 80%",
-                        end: "top 60%",
-                        scrub: true,
-                    },
-                },
-            );
         });
-
-        // Add extra padding at the bottom of the features section to ensure the last feature reaches the middle of the phone container
-        ScrollTrigger.create({
-            trigger: "#features",
-            start: "bottom bottom",
-            end: "bottom+=100%",
-            scrub: true,
-            onLeave: () => {
-                gsap.to(container, { opacity: 0, duration: 1 });
-            },
-            onEnterBack: () => {
-                gsap.to(container, { opacity: 1, duration: 1 });
-            },
-        });
-
-        function changeVideo(index) {
-            if (video) {
-                video.src = videoSources[index];
-                video.play();
-            }
-        }
     });
 </script>
 

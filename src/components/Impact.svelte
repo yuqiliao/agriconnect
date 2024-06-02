@@ -7,7 +7,17 @@
 
     onMount(() => {
         gsap.utils.toArray(".impact-tile").forEach((tile, i) => {
-            gsap.fromTo(
+            const timeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: tile,
+                    start: "top 80%",
+                    end: "top center",
+                    toggleActions: "play none none reverse",
+                    // markers: true,
+                },
+            });
+
+            timeline.fromTo(
                 tile,
                 {
                     opacity: 0,
@@ -18,12 +28,6 @@
                     y: 0,
                     duration: 1,
                     delay: i * 0.2,
-                    scrollTrigger: {
-                        trigger: tile,
-                        start: "top 80%",
-                        end: "top 60%",
-                        scrub: true,
-                    },
                 },
             );
         });

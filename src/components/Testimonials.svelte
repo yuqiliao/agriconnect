@@ -7,7 +7,17 @@
 
     onMount(() => {
         gsap.utils.toArray(".testimonial-card").forEach((card, i) => {
-            gsap.fromTo(
+            const timeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    end: "top center",
+                    toggleActions: "play none none reverse",
+                    // markers: true,
+                },
+            });
+
+            timeline.fromTo(
                 card,
                 {
                     opacity: 0,
@@ -18,12 +28,6 @@
                     y: 0,
                     duration: 1,
                     delay: i * 0.2,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 80%",
-                        end: "top 60%",
-                        scrub: true,
-                    },
                 },
             );
         });
@@ -65,9 +69,3 @@
         </div>
     </div>
 </section>
-
-<style>
-    .testimonial-card {
-        opacity: 0;
-    }
-</style>
